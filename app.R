@@ -14,7 +14,7 @@ ui <- fluidPage(
   sidebarLayout(
     sidebarPanel(
         numericInput('sample_size', 'Observed Risk Calculator: Sample size in which "zero" defects were observed:',100,min=0,max=10000,step = 1),
-        numericInput('max_risk', 'Sample Size Calculator: Maximum allowable risk:',0.005,min=0,max=0.05,step = 0.001),
+        numericInput('max_risk', 'Sample Size Calculator: Maximum allowable risk desired:',0.005,min=0,max=0.05,step = 0.001),
         submitButton('Calculate')
     ),
     mainPanel(withMathJax(),
@@ -30,10 +30,10 @@ ui <- fluidPage(
     be consistent with '0' observed defects."),
     
     strong("Sample Size Calculator"),
-    p("The sample size calculator takes a maximum allowable risk and calculates the minimum possible sample size consistent with observing 'zero' defects)."),
+    p("The sample size calculator takes a maximum allowable risk and calculates the minimum possible sample size consistent with observing 'zero' defects."),
     p("Example: Given a maximum allowable defect level of 0.005, a sample size of 600 with no observed defects would assure the true defect level would be no greater than 0.005."),
     strong("Notes"),
-    p("The above assumes random sampling and independence between events. Calculations are based on a 95% confidence interal.  Sample sizes of 20 or greater are suggested."),
+    p("The above assumes random sampling and independence between events. Calculations are based on a 95% confidence interval.  Sample sizes of 20 or greater are suggested for best results."),
       h3("Observed Risk Calculator"),
         h4("The worst case or maximum risk in a sample of size of"),
         verbatimTextOutput("sample_size", placeholder = TRUE),

@@ -1,0 +1,12 @@
+name: 3n_calc
+title: 3n_calc
+username:
+account: cowboy2718
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 2383926
+bundleId: 3209726
+url: https://cowboy2718.shinyapps.io/3n_calc/
+when: 1590899750.70406
+asMultiple: FALSE
+asStatic: FALSE
