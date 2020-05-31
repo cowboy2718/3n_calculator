@@ -5,8 +5,8 @@ account: cowboy2718
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 2383926
-bundleId: 3209726
+bundleId: 3209744
 url: https://cowboy2718.shinyapps.io/3n_calc/
-when: 1590899750.70406
+when: 1590900367.38789
 asMultiple: FALSE
 asStatic: FALSE

@@ -33,7 +33,9 @@ ui <- fluidPage(
     p("The sample size calculator takes a maximum allowable risk and calculates the minimum possible sample size consistent with observing 'zero' defects."),
     p("Example: Given a maximum allowable defect level of 0.005, a sample size of 600 with no observed defects would assure the true defect level would be no greater than 0.005."),
     strong("Notes"),
-    p("The above assumes random sampling and independence between events. Calculations are based on a 95% confidence interval.  Sample sizes of 20 or greater are suggested for best results."),
+    p("The above assumes random sampling and independence between events. Calculations are based on a 95% confidence interval.  Sample sizes of 20 or greater are suggested for best results.
+    for more examples, click on the following: "),
+    tags$a(href="https://www.youtube.com/watch?v=AK03n1N52QA&t=38s", "YouTube Video on the 3/n Rule"),
       h3("Observed Risk Calculator"),
         h4("The worst case or maximum risk in a sample of size of"),
         verbatimTextOutput("sample_size", placeholder = TRUE),
@@ -43,7 +45,9 @@ ui <- fluidPage(
         h4("Given a maximum allowable risk level of"),
         verbatimTextOutput("risk_input", placeholder = TRUE),
         h4("the sample size given below with no observed defects is required"),
-        verbatimTextOutput("min_sample")
+        verbatimTextOutput("min_sample"),
+        tags$a(href="https://github.com/cowboy2718/3n_calculator", "Click here for more information on the calculator including code on github")
+    
     )
   )
 )
