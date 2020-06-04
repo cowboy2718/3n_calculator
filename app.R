@@ -14,11 +14,12 @@ ui <- fluidPage(
   sidebarLayout(
     sidebarPanel(
         numericInput('sample_size', 'Observed Risk Calculator: Sample size in which "zero" defects were observed:',100,min=0,max=10000,step = 1),
-        numericInput('max_risk', 'Sample Size Calculator: Maximum allowable risk desired:',0.005,min=0,max=0.05,step = 0.001),
+        numericInput('max_risk', 'Sample Size Calculator: Maximum allowable risk desired (failure proportion):',0.005,min=0,max=0.05,step = 0.001),
         submitButton('Calculate')
     ),
     mainPanel(withMathJax(),
-      h4("Instructions"),
+      h3("Instructions"),
+      p("Note: There are two independent calculators which are used in the following ways:"),
       #p("This calculator is based on the idea of what happens when 'zero' defects are observed in a sample.  
       #Just because a sample shows 'zero' defects, doesn't mean the true defect level is zero ... 
       #the defect level could be so small so the sample size chosen doesn't show any problems."),
@@ -27,20 +28,21 @@ ui <- fluidPage(
         with observing 'zero' defects (it could be truly zero or as high as the estimated value)."),
         p("Example: Given a sample size of 100 with '0' observed defects, the true defect level could be anywhere between 0 and  0.03 (3%) and still
         be consistent with '0' observed defects."),
+        h4("OR"),
         strong("Sample Size Calculator"),
         p("The sample size calculator takes a maximum allowable risk and calculates the minimum possible sample size consistent with observing 'zero' defects."),
         p("Example: Given a maximum allowable defect level of 0.005, a sample size of 600 with no observed defects would assure the true defect level would be no greater than 0.005."),
         tags$a(href="https://www.youtube.com/watch?v=63_NF63bZZU", "Click here for the How To Video"),
     
-      h4("Observed Risk Calculator"),
-        h4("The worst case or maximum risk in a sample of size of"),
+      h3("Observed Risk Calculator"),
+        h5("The worst case or maximum risk (failure proportion) in a sample of size of"),
         verbatimTextOutput("sample_size", placeholder = TRUE),
-        h4("consistent with 'zero' observed defects could be as high as:"),
+        h5("consistent with 'zero' observed defects could be as high as:"),
         verbatimTextOutput("risk"),
-      h4("Sample Size Calculator"),
-        h4("Given a maximum allowable risk level of"),
+      h3("Sample Size Calculator"),
+        h5("Given a maximum allowable risk (failure proportion) level of"),
         verbatimTextOutput("risk_input", placeholder = TRUE),
-        h4("the sample size given below with no observed defects is required"),
+        h5("the sample size given below with no observed defects is required"),
         verbatimTextOutput("min_sample"),
         strong("Notes"),
         p("All the preceding assumes random sampling and independence between events. Calculations are based on a 95% confidence interval.  Sample sizes of 20 or greater are suggested for best results."),
